@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageSquare, Wand2, Download, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const HowItWorks: React.FC = () => {
   const steps = [
@@ -79,9 +80,11 @@ const HowItWorks: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
+          <Link href={"/dashboard"}>
           <button className="btn-primary px-8 py-4 text-lg font-semibold hover-glow">
             Start Creating Now
           </button>
+          </Link>
           <p className="text-gray-400 mt-4">No credit card required • Free plan available</p>
         </div>
       </div>

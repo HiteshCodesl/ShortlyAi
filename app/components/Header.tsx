@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { Video, Menu, X, Sparkles, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,10 +57,12 @@ const Header: React.FC = () => {
             <button className="text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5">
               Sign In
             </button>
+             <Link href={"/dashboard"}>
             <button className="btn-primary flex items-center">
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}

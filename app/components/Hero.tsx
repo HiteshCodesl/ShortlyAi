@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Play, ArrowRight, Brain, Bot, Video, Eye, Wand2 } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero: React.FC = () => {
   return (
@@ -9,9 +10,8 @@ const Hero: React.FC = () => {
         <div className="text-center animate-fade-in">
           {/* Status Badge */}
           <div className="badge-dark mb-8">
-            <div className="w-2 h-2 status-active rounded-full mr-3"></div>
             <Brain className="h-4 w-4 text-primary mr-2" />
-            <span className="text-gray-300 text-sm font-medium">AI Engine Online</span>
+            <span className="text-gray-300 text-sm font-medium">AI Powered</span>
           </div>
 
           {/* Main Heading */}
@@ -28,11 +28,13 @@ const Hero: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Link href={"/dashboard"}>
             <button className="btn-primary px-8 py-4 text-lg font-semibold flex items-center justify-center hover-glow">
               <Bot className="mr-3 h-5 w-5" />
               Generate Videos Instantly
               <ArrowRight className="ml-3 h-5 w-5" />
             </button>
+            </Link>
             
           </div>
 
