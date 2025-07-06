@@ -20,7 +20,7 @@ export function SelectTopic({onUserSelect}) {
                 setSelectedContent(value)
                 value!="Custom Prompt"&&onUserSelect("topic", value)
                 }}>
-                <SelectTrigger className="w-full mt-2 text-sm">
+                <SelectTrigger className="w-full mt-2 text-sm max-w-screen-md" >
                     <SelectValue placeholder="Content Type" />
                 </SelectTrigger>
                 <SelectContent className="bg-primary">
