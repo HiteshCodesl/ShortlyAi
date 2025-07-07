@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
           {/* Status Badge */}
           <div className="badge-dark mb-8">
             <Brain className="h-4 w-4 text-primary mr-2" />
-            <span className="text-gray-300 text-sm font-medium">AI Powered</span>
+            <span className="text-gray-300 text-sm font-medium">AI Powered Engine</span>
           </div>
 
           {/* Main Heading */}
