@@ -10,26 +10,28 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import {CircleUser, FileVideo, LayoutDashboard, SquarePlus } from "lucide-react"
+import Link from "next/link"
 
 const MenuItems = [
     {
       title: "DashBoard",
-      icon: LayoutDashboard
+      icon: LayoutDashboard,
+      path: "/dashboard"
     },
     {
       title: "Create New",
       icon: FileVideo,
-      Link: "/dashboard"
+      path: "/dashboard/create-new"
     },
     {
       title: "subscription",
       icon: SquarePlus,
-      Link: "/dashboard"
+      path: "/dashboard"
     },
     {
       title: "Account",
       icon: CircleUser,
-      Link: "/dashboard"
+      path: "/dashboard"
     },
 ]
 
@@ -43,10 +45,10 @@ export function AppSidebar() {
           {MenuItems.map((item) =>(
              <SidebarMenuItem key={item.title} className="border btn-primary w-48 py-2 hover:">
                 <SidebarMenuButton asChild>
-                      <a href={item.Link}>
+                      <Link href={item.path}>
                       <item.icon />
                       <span>{item.title}</span>
-                      </a>
+                      </Link>
                 </SidebarMenuButton>
              </SidebarMenuItem>
           ))}
