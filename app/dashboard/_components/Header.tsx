@@ -4,7 +4,7 @@ import React from 'react'
 
 export function Header() {
   return (
-    <div className='fixed flex items-center mt-2   gap-28 justify-around w-screen border-b pb-2'>
+    <div className='sticky flex items-center mt-2   gap-28 justify-around w-screen border-b pb-2'>
          <div className="relative flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center glow-primary">
                 <Video className="h-6 w-6 text-white " />
