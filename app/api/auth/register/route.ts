@@ -11,7 +11,7 @@ export async function POST(req:NextRequest){
         }
     })
     if(isUserExists){
-        return NextResponse.json({message: "user already exists"}, {status: 401})
+        return NextResponse.json({message: "user already exists"}, {status: 400})
     }
 
     const hashedPassword = await hash(password, 10);
