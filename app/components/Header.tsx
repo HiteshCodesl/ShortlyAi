@@ -54,9 +54,11 @@ const Header: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link href={"/signup"}>
             <button className="text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5">
               Sign In
             </button>
+            </Link>
              <Link href={"/dashboard"}>
             <button className="btn-primary flex items-center">
               Get Started
