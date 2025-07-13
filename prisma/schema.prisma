@@ -4,6 +4,18 @@ model user {
   email        String  @unique
   password     String
   subscription Boolean @default(false)
+  videos       video[]
+  credits      Int     @default(50)
+}
+
+model video {
+  id           String @id @default(cuid())
+  videoScript  Json
+  audioFileUrl String
+  captions     Json
+  imageList    Json
+  createdBy    String
+  user         user   @relation(fields: [createdBy], references: [id])
 }
 
 generator client {
