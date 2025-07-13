@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import CredentialsProvider  from "next-auth/providers/credentials"
-import { prismaClient } from "@/prisma/src"
+import prismaClient from "@/lib/prisma"
 import {compare} from "bcrypt"
 
 const handler = NextAuth({
@@ -33,6 +33,9 @@ const handler = NextAuth({
         }
     })
   ],
+  pages: {
+    signIn: "/login",
+  },
   session: {
     strategy: "jwt"
   },
