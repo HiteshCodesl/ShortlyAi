@@ -3,10 +3,10 @@ import { PrismaClient } from "@prisma/client";
 const globalForPrisma = globalThis as unknown as {
     prisma: PrismaClient | undefined;
 }
-export const prismaSingletonClient = 
+export const prismaClient = 
     globalForPrisma.prisma ?? new PrismaClient();
 
 if(process.env.NODE_ENV !== "production")
-    globalForPrisma.prisma = prismaSingletonClient;
+    globalForPrisma.prisma = prismaClient;
 
-export default prismaSingletonClient;
+export default prismaClient;
