@@ -233,7 +233,7 @@ const StyledWrapper = styled.div`
   return (
    <AlertDialog open={loading}>
   <AlertDialogContent className='bg-white w-90px'>
-    <AlertDialogTitle className='text-primary text-2xl font-bold text-center '>Your video is Generating...</AlertDialogTitle>
+    <AlertDialogTitle className='text-primary text-2xl font-bold text-center '>Your video is Generating... </AlertDialogTitle>
          <div className='flex justify-center px-5'>
           {Loader()} 
          </div>
