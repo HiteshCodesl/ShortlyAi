@@ -40,6 +40,7 @@ Built for creators, marketers, and founders who want to convert ideas into engag
   - 🎞️ **Render AI** (final video composition)
 - ✅ Video history stored per user
 - ✅ Room for upgrade: Stripe integration, analytics, export options
+- ✅ full responsive can use in Mobiles, tablets, laptops.
 
 ---
 
