@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎥 ShortlyAI – AI-Powered Short Video Generator
 
-## Getting Started
+ShortlyAI is a fullstack SaaS application that lets users generate **viral short videos instantly** using a 3-stage AI pipeline: **Script AI → Visual AI → Render AI**.
 
-First, run the development server:
+Built for creators, marketers, and founders who want to convert ideas into engaging short-form content — without editing skills or complex tools.
+
+---
+
+## 🌐 Live Demo
+
+🔗 [https://shortlyai.vercel.app](https://shortlyai.vercel.app) 
+
+> ⚠️ Note: This project is actively under development. Occasional errors may occur while generating content — fixes are in progress.
+
+---
+
+## 📸 Screenshots
+
+### Landing Page  
+![Landing](/LandingPage.png)
+
+### Dashboard  
+![Dashboard](/Dashboard.png)
+
+### Video Creation  
+![Create](/Create-new.png)
+
+---
+
+## 🚀 Features
+
+- ✅ Modern landing page with CTA
+- ✅ Authenticated dashboard using **NextAuth**
+- ✅ Select content type & video style (Real, Cartoon, Comic, Watercolor, GTA)
+- ✅ AI Pipeline:
+  - ✍️ **Script AI** (OpenAI GPT-4)
+  - 👁️ **Visual AI** (image generation engine)
+  - 🎞️ **Render AI** (final video composition)
+- ✅ Video history stored per user
+- ✅ Room for upgrade: Stripe integration, analytics, export options
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Tools Used |
+|-------|-------------|
+| 🧠 AI | GEMINI , Assembly / Replicate |
+| 🌐 Frontend | Next.js 14, TailwindCSS, Shadcn/UI |
+| 🧪 Backend | Node.js, Next.js API routes |
+| 🔐 Auth | NextAuth.js |
+| 🗃️ Database | Prisma + PostgreSQL |
+| ☁️ Deployment | Vercel  |
+
+---
+
+## 🧠 How It Works
+
+1. User logs in and clicks **“Generate Video”**
+2. Gemini generates a short script based on input
+3. Genrates a audio using this script.(via MurfAI)
+4. Based on that Audio creates a Captions. (via AssemblyAI)
+3. Visuals are created using selected style (via ReplicateAI)
+4. Render AI compiles everything into a downloadable short video
+5. Video is stored and shown on the user's dashboard
+---
+
+## 🧪 Local Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/HiteshCodesl/ShortlyAi.git
+cd videogenerator
+pnpm install
+cp .env.example .env.local # add your OpenAI & DB keys
+pnpm run dev
