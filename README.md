@@ -17,13 +17,13 @@ Built for creators, marketers, and founders who want to convert ideas into engag
 ## 📸 Screenshots
 
 ### Landing Page  
-![Landing](/LandingPage.png)
+![Landing]("./screenshots/LandingPage.png")
 
 ### Dashboard  
-![Dashboard](/Dashboard.png)
+![Dashboard]("./screenshots/Dashboard.png")
 
 ### Video Creation  
-![Create](/Create-new.png)
+![Create]("./screenshots/Create-new.png")
 
 ---
 
