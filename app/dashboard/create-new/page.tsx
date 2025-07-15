@@ -13,11 +13,11 @@ import PlayerDiaglog from '../_components/PlayerDiaglog';
 function CreateNew() {
   const [formData, setFormData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [videoScript, setVideoScript] = useState("");
+  const [videoScript, setVideoScript] = useState([]);
   const [audioFileUrl, setAudioFileUrl] = useState("");
-  const [captions, setCaptions] = useState("");
-  const [imageList, setImageList] = useState({});
-  const {videoData, setVideoData} = useContext(VideoDataContext)
+  const [captions, setCaptions] = useState([]);
+  const [imageList, setImageList] = useState([]);
+  const { videoData, setVideoData } = useContext(VideoDataContext)
   const [playVideo, setPlayVideo] = useState(false);
   const [videoId, setVideoId] = useState("");
 
@@ -33,8 +33,9 @@ function CreateNew() {
   }
 
   const GetVideoScript = async () => {
+    console.log(formData)
     setLoading(true);
-    const prompt = 'write a script to generate ' + formData.duration + ' video on topic ' + formData.topic + ' along with  AI image prompt in ' + formData.imageStyle + ' format for each some and give me result in JSON format with imagePrompt and contentText as field'
+    const prompt = `write a script to generate ${formData.duration} video on topic ${formData.topic} along with  AI image prompt in ${formData.imageStyle} format for each some and give me result in JSON format with imagePrompt and contentText as field`
     const response = await axios.post("/api/get-video-script", {
       prompt: prompt
     })
@@ -43,29 +44,31 @@ function CreateNew() {
         ...prev,
         "videoScript": response.data.videoScript
       }))
+      console.log(response.data.videoScript);
       setVideoScript(response.data.videoScript);
       await GetAudioScript(response.data.videoScript);
     }
     setLoading(false);
   }
 
-  const GetAudioScript = async(videoScriptData) => {
+  const GetAudioScript = async (videoScriptData) => {
+    console.log("inside getaudio", videoScriptData)
     setLoading(true);
     let script = "";
     const id = uuidv4();
-     videoScriptData.forEach(item=>{
-       script = script+item.contentText+' ';
-     })
+    videoScriptData.forEach(item => {
+      script = script + item.contentText + ' ';
+    })
 
-   const response = await axios.post("/api/get-Audio", {
+    const response = await axios.post("/api/get-Audio", {
       "text": script,
       "voiceId": "en-US-charles",
       id: id
     })
-     setVideoData(prev =>({
-        ...prev,
-        "audioFileUrl": response.data
-      }))
+    setVideoData(prev => ({
+      ...prev,
+      "audioFileUrl": response.data
+    }))
     setAudioFileUrl(response.data)
     response.data && await GetAudioCaptions(response.data, videoScriptData)
     setLoading(false);
@@ -73,71 +76,79 @@ function CreateNew() {
 
   const GetAudioCaptions = async (fileUrl, videoScriptData) => {
     setLoading(true);
-console.log(fileUrl)
-     const response = await axios.post("/api/get-caption", {
+    console.log(fileUrl)
+    const response = await axios.post("/api/get-caption", {
       audioFileUrl: fileUrl
     })
-      setCaptions(response.data)
-       setVideoData(prev =>({
-        ...prev,
-        "captions": response.data
-      }))
-      response.data && await GetImage(videoScriptData);
-  
+    setCaptions(response.data)
+    setVideoData(prev => ({
+      ...prev,
+      "captions": response.data
+    }))
+    response.data && await GetImage(videoScriptData);
+
     setLoading(false);
   }
 
   const GetImage = async (videoScriptData) => {
-  setLoading(true); 
-  let images = [];
-  for(const element of videoScriptData){
-    try{
-      const response = await axios.post("/api/get-Image",{
-        prompt: element.imagePrompt
-      });
-      console.log("images in pagee.tsx dashbaord",response.data.result);
+    setLoading(true);
+    let images = [];
+    for (const element of videoScriptData) {
+      try {
+        const response = await axios.post("/api/get-Image", {
+          prompt: element.imagePrompt
+        });
+        console.log("images in pagee.tsx dashbaord", response.data.result);
 
-      images.push(response.data.result);
-    }catch(e){
-      console.log('error' , e)
+        images.push(response.data.result);
+      } catch (e) {
+        console.log('error', e)
+      }
     }
-  }
-    setVideoData(prev =>({
-         ...prev,
-         "imageList": images
-       }))
-  
+    setVideoData(prev => ({
+      ...prev,
+      "imageList": images
+    }))
+
     setImageList(images);
     setLoading(false);
   }
 
-useEffect(()=>{
-console.log("videodata", videoData)
-if (
-  videoData.videoScript &&
-  videoData.audioFileUrl &&
-  videoData.captions &&
-  Array.isArray(videoData.imageList) &&
-  videoData.imageList.length > 4 
-){
- SaveVideoData(videoData);
-}
-}, [videoData])
+  useEffect(() => {
 
- const SaveVideoData = async(videoData) =>{
-     setLoading(true);
-     const result = await axios.post("/api/save-video",{
+    console.log("videodata", videoData)
+    if (
+      videoData.videoScript &&
+      videoData.audioFileUrl &&
+      videoData.captions &&
+      videoData.imageList &&
+      videoData.imageList.length > 4
+    ) {
+      SaveVideoData(videoData);
+    }
+  }, [videoData])
+
+
+  const SaveVideoData = async (videoData) => {
+    setLoading(true);
+    const result = await axios.post("/api/save-video", {
       videoScript: videoData.videoScript,
       audioFileUrl: videoData.audioFileUrl,
       captions: videoData.captions,
       imageList: videoData.imageList,
-     })
-     setPlayVideo(true);
-     setVideoId(result.data.videoId);
-     setLoading(false);
- }
+    })
+    setPlayVideo(true);
+    setVideoId(result.data.videoId);
+    setLoading(false);
+    updateToken();
+  }
 
-  return (
+  const updateToken = async () => {
+     await axios.post("/api/credits/use-token")
+     setVideoData(null);
+  }
+
+return (
     <div className='lg:flex lg:justify-center lg:w-full'>
       <h2 className='text-2xl text-primary font-bold text-center mb-4'>Create New</h2>
       <div className='mt-10 shadow-xl p-10 border mx-3 lg:flex lg:flex-col lg:justify-center lg:mx-4 lg:absolute'>
@@ -148,7 +159,7 @@ if (
         <Button className='flex w-full justify-center mt-7 max-w-screen-md' onClick={onCreateClickHandler}>Create Short video</Button>
 
         <CustomLoading loading={loading} />
-        <PlayerDiaglog  playVideo={playVideo} videoId={videoId}/>
+        <PlayerDiaglog playVideo={playVideo} videoId={videoId} />
       </div>
     </div>
   )
