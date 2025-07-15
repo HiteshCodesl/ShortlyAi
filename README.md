@@ -25,6 +25,8 @@ Built for creators, marketers, and founders who want to convert ideas into engag
 ### Video Creation  
 ![Create](./screenshots/create-new.png)
 
+### Video Created
+![Final](./screenshots/video.png)
 ---
 
 ## 🚀 Features
