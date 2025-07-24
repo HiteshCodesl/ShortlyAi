@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Play, ArrowRight, Brain, Bot, Video, Eye, Wand2 } from 'lucide-react';
+import { ArrowRight, Brain, Bot, Video, Eye, Wand2 } from 'lucide-react';
 import Link from 'next/link';
 
 const Hero: React.FC = () => {
@@ -106,41 +106,7 @@ const Hero: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Video Output Preview */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="glass-card rounded-lg p-4 hover-lift hover-glow">
-                    <div className="aspect-[9/16] bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
-                      <Play className="h-10 w-10 text-primary z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 animate-pulse"></div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white font-medium text-sm">Product Demo</p>
-                      <p className="text-primary text-xs">TikTok • 15s</p>
-                    </div>
-                  </div>
-
-                  <div className="glass-card rounded-lg p-4 hover-lift hover-glow">
-                    <div className="aspect-[9/16] bg-gradient-to-br from-cyan-600/20 to-blue-600/20 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
-                      <Play className="h-10 w-10 text-secondary z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 animate-pulse"></div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white font-medium text-sm">Tutorial</p>
-                      <p className="text-secondary text-xs">Instagram • 30s</p>
-                    </div>
-                  </div>
-
-                  <div className="glass-card rounded-lg p-4 hover-lift hover-glow">
-                    <div className="aspect-[9/16] bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-lg mb-3 flex items-center justify-center relative overflow-hidden">
-                      <Play className="h-10 w-10 text-accent z-10" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 animate-pulse"></div>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-white font-medium text-sm">Brand Story</p>
-                      <p className="text-accent text-xs">YouTube • 60s</p>
-                    </div>
-                  </div>
-                </div>
+             
               </div>
             </div>
           </div>
@@ -148,12 +114,12 @@ const Hero: React.FC = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center glass-card rounded-lg p-6 hover-lift">
-              <div className="text-3xl font-bold font-poppins text-primary mb-2">1M+</div>
+              <div className="text-3xl font-bold font-poppins text-primary mb-2">100+</div>
               <div className="text-gray-400 text-sm">Videos Created</div>
             </div>
             
             <div className="text-center glass-card rounded-lg p-6 hover-lift">
-              <div className="text-3xl font-bold font-poppins text-secondary mb-2">500K+</div>
+              <div className="text-3xl font-bold font-poppins text-secondary mb-2">1K+</div>
               <div className="text-gray-400 text-sm">Creators</div>
             </div>
             
@@ -163,7 +129,7 @@ const Hero: React.FC = () => {
             </div>
             
             <div className="text-center glass-card rounded-lg p-6 hover-lift">
-              <div className="text-3xl font-bold font-poppins text-white mb-2">2.3s</div>
+              <div className="text-3xl font-bold font-poppins text-white mb-2">2m</div>
               <div className="text-gray-400 text-sm">Avg Render</div>
             </div>
           </div>
