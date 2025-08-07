@@ -13,7 +13,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const [videoData, setVideoData] = useState([]); 
-  return (
+  return(
+    <html>
     <ThemeProvider
       attribute="class"
       defaultTheme="dark"
@@ -36,5 +37,6 @@ export default function DashboardLayout({
           </SidebarProvider>
         </VideoDataContext.Provider>
     </ThemeProvider>
-  );
+    </html>
+  )
 }

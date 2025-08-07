@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -7,7 +6,7 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 
-function App() {
+export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-dark grid-pattern relative overflow-hidden">
 
@@ -30,4 +29,3 @@ function App() {
   );
 }
 
-export default App;
