@@ -1,23 +1,25 @@
-
 import React from 'react';
 import { ArrowRight, Brain, Bot, Video, Eye, Wand2 } from 'lucide-react';
 import Link from 'next/link';
 
 const Hero: React.FC = () => {
   return (
-    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative">
+    <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-6 relative lg:pt-44">
+
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center animate-fade-in">
-          {/* Status Badge */}
-          <div className="badge-dark mb-8">
+        <div className="text-center animate-fade-in lg:flex lg:gap-22">
+
+          <div className='lg:flex lg:flex-col lg:items-center lg:mt-14 lg:mr-20'>
+
+          <div className="badge-dark mb-8 lg:w-[300px] lg:flex lg:justify-center">
             <Brain className="h-4 w-4 text-primary mr-2" />
-            <span className="text-gray-300 text-sm font-medium">AI Powered Engine</span>
+            <span className="text-gray-300 text-sm font-medium  text-center">AI Powered Engine</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-6xl font-poppins font-bold mb-6 leading-tight">
             <div className="text-white mb-2">Generate Viral</div>
-            <div className="text-gradient">Short Videos Instantly</div>
+            <div className="text-gradient lg:text-nowrap">Short Videos Instantly</div>
           </h1>
 
           {/* Subtitle */}
@@ -25,7 +27,8 @@ const Hero: React.FC = () => {
             Transform your ideas into <span className="text-primary font-semibold">engaging short videos</span> with 
             advanced AI technology. No editing skills required.
           </p>
-
+         
+           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href={"/dashboard"}>
@@ -35,34 +38,36 @@ const Hero: React.FC = () => {
               <ArrowRight className="ml-3 h-5 w-5" />
             </button>
             </Link>
-            
+             </div>
           </div>
 
           {/* AI Interface Mockup */}
-          <div className="relative max-w-6xl mx-auto animate-scale-in">
+          <div className='lg:flex lg:flex-col '>
+          <div className="relative max-w-6xl mx-auto animate-scale-in lg:flex">
             <div className="glass-card rounded-2xl p-6 glow-primary">
               <div className="bg-black/30 rounded-xl p-6">
                 {/* Interface Header */}
                 <div className="flex items-center justify-between mb-6 p-4 glass-card rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center glow-primary">
-                      <Video className="h-5 w-5 text-white" />
+                      <Video className="h-5 w-5 text-black" />
                     </div>
                     <div>
                       <span className="text-white font-semibold">ShortlyAI Studio</span>
-                      <div className="text-green-400 text-xs flex items-center">
-                        <div className="w-1 h-1 bg-green-400 rounded-full mr-1 animate-pulse"></div>
+                      <div className="text-yellow-400 text-xs flex items-center">
+                        <div className="w-1 h-1 bg-yellow-400 rounded-full mr-1 animate-pulse"></div>
                         Processing
                       </div>
                     </div>
                   </div>
-                  <div className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium border border-green-500/30">
+                  <div className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs font-medium border border-green-500/30">
                     AI Active
                   </div>
                 </div>
 
                 {/* AI Processing Modules */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 lg:gap-3 lg:">
+
                   <div className="glass-card rounded-lg p-4 hover-lift">
                     <div className="flex items-center mb-3">
                       <Brain className="h-5 w-5 text-primary mr-2" />
@@ -86,7 +91,7 @@ const Hero: React.FC = () => {
                       </div>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full glow-secondary" style={{ width: '92%' }}></div>
+                      <div className="h-full bg-gradient-to-r from-orange-500 to-amber-500 rounded-full glow-secondary" style={{ width: '92%' }}></div>
                     </div>
                     <p className="text-gray-400 text-xs mt-2">Creating visuals...</p>
                   </div>
@@ -112,26 +117,30 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center glass-card rounded-lg p-6 hover-lift">
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 lg:gap-28">
+
+            <div className="text-center glass-card rounded-lg p-6 hover-lift lg:pr-20">
               <div className="text-3xl font-bold font-poppins text-primary mb-2">100+</div>
               <div className="text-gray-400 text-sm">Videos Created</div>
-            </div>
+          </div>
             
-            <div className="text-center glass-card rounded-lg p-6 hover-lift">
+            <div className="text-center glass-card rounded-lg p-6 hover-lift lg:pr-20">
               <div className="text-3xl font-bold font-poppins text-secondary mb-2">1K+</div>
               <div className="text-gray-400 text-sm">Creators</div>
             </div>
             
-            <div className="text-center glass-card rounded-lg p-6 hover-lift">
+            <div className="text-center glass-card rounded-lg p-6 hover-lift lg:pr-24">
               <div className="text-3xl font-bold font-poppins text-accent mb-2">99.9%</div>
               <div className="text-gray-400 text-sm">Uptime</div>
             </div>
             
-            <div className="text-center glass-card rounded-lg p-6 hover-lift">
+            <div className="text-center glass-card rounded-lg p-6 hover-lift lg:pr-20">
               <div className="text-3xl font-bold font-poppins text-white mb-2">2m</div>
               <div className="text-gray-400 text-sm">Avg Render</div>
             </div>
+
+          </div>
+
           </div>
         </div>
       </div>

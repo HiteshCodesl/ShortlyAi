@@ -82,7 +82,7 @@ const Pricing: React.FC = () => {
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-hero text-white px-4 py-1 rounded-full text-sm font-semibold glow-primary">
+                  <div className="bg-gradient-hero text-black px-4 py-1 rounded-full text-sm font-semibold glow-primary">
                     Most Popular
                   </div>
                 </div>
@@ -90,7 +90,7 @@ const Pricing: React.FC = () => {
 
               {/* Plan Header */}
               <div className="text-center mb-8">
-                <div className="inline-flex p-3 rounded-lg bg-gradient-hero text-white mb-4 glow-primary">
+                <div className="inline-flex p-3 rounded-lg bg-gradient-hero text-black mb-4 glow-primary">
                   {plan.icon}
                 </div>
                 <h3 className="text-xl font-semibold font-poppins text-white mb-2">{plan.name}</h3>

@@ -105,15 +105,15 @@
 @layer utilities {
   /* Dark Theme Color Palette */
   .text-primary {
-    color: #6366f1;
+    color: #ff8904;
   }
   
   .text-secondary {
-    color: #06b6d4;
+    color: #ffb900;
   }
   
   .text-accent {
-    color: #8b5cf6;
+    color: #fdc700;
   }
   
   .bg-primary {
@@ -134,7 +134,7 @@
   }
   
   .bg-gradient-hero {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+    background: linear-gradient(135deg, #ffeb0a 0%, #ffea5e 50%, #d4ab06 100%);
   }
   
   .bg-gradient-glow {
@@ -143,10 +143,10 @@
   
   /* Glass Morphism */
   .glass-card {
-    background: rgba(15, 15, 15, 0.8);
+    background: rgba(116, 116, 114, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(216, 207, 31, 0.1);
+    box-shadow: 0 8px 32px rgba(212, 171, 66, 0.3);
   }
   
   .glass-header {
@@ -170,7 +170,7 @@
   
   /* Animated Gradients */
   .text-gradient {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+    background: linear-gradient(135deg, #ff8904, #ffb900, #ffdf20);
     background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -187,10 +187,9 @@
     }
   }
   
-  /* Futuristic Buttons */
   .btn-primary {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: white;
+    background: linear-gradient(135deg, #ff8904, #ffb900);
+    color: black;
     border: none;
     padding: 14px 28px;
     border-radius: 12px;

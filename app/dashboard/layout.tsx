@@ -14,7 +14,6 @@ export default function DashboardLayout({
 }) {
   const [videoData, setVideoData] = useState([]); 
   return(
-    <html>
     <ThemeProvider
       attribute="class"
       defaultTheme="dark"
@@ -37,6 +36,5 @@ export default function DashboardLayout({
           </SidebarProvider>
         </VideoDataContext.Provider>
     </ThemeProvider>
-    </html>
   )
 }

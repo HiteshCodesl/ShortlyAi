@@ -51,7 +51,7 @@ const HowItWorks: React.FC = () => {
                     <div className="text-5xl font-bold font-poppins text-gray-700">
                       {step.step}
                     </div>
-                    <div className="p-3 rounded-lg bg-gradient-hero text-white glow-primary">
+                    <div className="p-3 rounded-lg bg-gradient-hero text-black glow-primary">
                       {step.icon}
                     </div>
                   </div>

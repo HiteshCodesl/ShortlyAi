@@ -74,7 +74,7 @@ const Testimonials: React.FC = () => {
               className="glass-card rounded-xl p-6 hover-lift card-dark"
             >
               {/* Quote Icon */}
-              <div className="inline-flex p-2 rounded-lg bg-gradient-hero text-white mb-4 glow-primary">
+              <div className="inline-flex p-2 rounded-lg bg-gradient-hero text-black mb-4 glow-primary">
                 <Quote className="h-4 w-4" />
               </div>
 
