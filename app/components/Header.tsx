@@ -25,9 +25,9 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-3">
             <div className="relative">
               <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center glow-primary">
-                <Video className="h-6 w-6 text-white" />
+                <Video className="h-6 w-6 text-black" />
               </div>
-              <Sparkles className="h-3 w-3 text-yellow-400 absolute -top-1 -right-1" />
+              <Sparkles className="h-3 w-3 text-red-400 absolute -top-1 -right-1" />
             </div>
             <div>
               <span className="text-xl font-bold font-poppins text-white">
