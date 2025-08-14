@@ -9,6 +9,7 @@ import { CustomLoading } from './_components/CustomLoading';
 import { v4 as uuidv4 } from "uuid";
 import { VideoDataContext } from '@/app/_context/VideoDataContext';
 import PlayerDiaglog from '../_components/PlayerDiaglog';
+import { Subscription } from './_components/SubScription';
 
 
 export type FormData = {
@@ -27,6 +28,7 @@ function CreateNew() {
   const {videoData, setVideoData } = useContext(VideoDataContext)
   const [playVideo, setPlayVideo] = useState(false);
   const [videoId, setVideoId] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const onHandleInputChange = (fieldName, fieldValue) => {
     setFormData(prev => ({
@@ -164,9 +166,9 @@ return (
         <SelectStyle onUserSelect={onHandleInputChange} />
         <SelectDuration onUserSelect={onHandleInputChange} />
 
-        <Button className='flex w-full bg-gradient-to-r from-orange-400 to-amber-300  text-black justify-center mt-7 max-w-screen-md' onClick={onCreateClickHandler}>Create Short video</Button>
+        <Button className='flex w-full bg-gradient-to-r from-orange-400 to-amber-300  text-black justify-center mt-7 max-w-screen-md' onClick={() => setIsOpen(true)}>Create Short video</Button>
         
-
+        <Subscription isOpen={isOpen} setIsOpen={setIsOpen} />
         <CustomLoading loading={loading} />
         <PlayerDiaglog playVideo={playVideo} videoId={videoId} />
       </div>
