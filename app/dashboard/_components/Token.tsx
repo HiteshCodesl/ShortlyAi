@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 
 export  function TokenHeader(){
    const [credits, setCredits] = useState<number | null>(null)
+   
    useEffect(()=>{
    const fetchCredits = async() =>{
    const res = await axios.get("/api/credits/get-token");

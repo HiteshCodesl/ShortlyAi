@@ -43,7 +43,7 @@ export function SelectStyle({onUserSelect}) {
                     onUserSelect("imageStyle", item.name)
                 }}
                 />
-                <h2 className="absolute rounded-b-md bg-primary text-center py-1 bottom-0 w-full text-foreground">{item.name}</h2>
+                <h2 className="absolute rounded-b-md bg-gradient-to-r from-orange-400 to-amber-300 text-center py-1 bottom-0 w-full text-black">{item.name}</h2>
                 </div>
             ))}
          </div>

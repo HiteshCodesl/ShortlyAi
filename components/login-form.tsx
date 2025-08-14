@@ -50,11 +50,9 @@ export function LoginForm({
                 <Input className="font-semibold" id="password" type="password" required />
               </div>
               <Button type="submit" className="w-full">
-                Login
+                Signup
               </Button>
-              <Button variant="secondary" className="w-full">
-                Login with Google
-              </Button>
+    
             </div>
             <div className="mt-4 text-center text-sm font-semibold">
               Don&apos;t have an account?{" "}

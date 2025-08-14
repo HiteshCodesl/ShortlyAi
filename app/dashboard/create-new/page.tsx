@@ -10,14 +10,21 @@ import { v4 as uuidv4 } from "uuid";
 import { VideoDataContext } from '@/app/_context/VideoDataContext';
 import PlayerDiaglog from '../_components/PlayerDiaglog';
 
+
+export type FormData = {
+  duration:string; 
+  topic:string ;
+  imageStyle:string;
+}
+
 function CreateNew() {
-  const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState<FormData[]>([]);
   const [loading, setLoading] = useState(false);
   const [videoScript, setVideoScript] = useState([]);
   const [audioFileUrl, setAudioFileUrl] = useState("");
   const [captions, setCaptions] = useState([]);
   const [imageList, setImageList] = useState([]);
-  const { videoData, setVideoData } = useContext(VideoDataContext)
+  const {videoData, setVideoData } = useContext(VideoDataContext)
   const [playVideo, setPlayVideo] = useState(false);
   const [videoId, setVideoId] = useState("");
 
@@ -36,9 +43,11 @@ function CreateNew() {
     console.log(formData)
     setLoading(true);
     const prompt = `write a script to generate ${formData.duration} video on topic ${formData.topic} along with  AI image prompt in ${formData.imageStyle} format for each some and give me result in JSON format with imagePrompt and contentText as field`
+
     const response = await axios.post("/api/get-video-script", {
       prompt: prompt
     })
+
     if(response.data.videoScript){
       setVideoData(prev =>({
         ...prev,
@@ -52,7 +61,6 @@ function CreateNew() {
   }
 
   const GetAudioScript = async (videoScriptData) => {
-    console.log("inside getaudio", videoScriptData)
     setLoading(true);
     let script = "";
     const id = uuidv4();
@@ -96,7 +104,7 @@ function CreateNew() {
     for (const element of videoScriptData) {
       try {
         const response = await axios.post("/api/get-Image", {
-          prompt: element.imagePrompt
+           prompt: element.imagePrompt
         });
         console.log("images in pagee.tsx dashbaord", response.data.result);
 
@@ -156,7 +164,8 @@ return (
         <SelectStyle onUserSelect={onHandleInputChange} />
         <SelectDuration onUserSelect={onHandleInputChange} />
 
-        <Button className='flex w-full justify-center mt-7 max-w-screen-md' onClick={onCreateClickHandler}>Create Short video</Button>
+        <Button className='flex w-full bg-gradient-to-r from-orange-400 to-amber-300  text-black justify-center mt-7 max-w-screen-md' onClick={onCreateClickHandler}>Create Short video</Button>
+        
 
         <CustomLoading loading={loading} />
         <PlayerDiaglog playVideo={playVideo} videoId={videoId} />

@@ -8,7 +8,7 @@ export async function GET(req:NextRequest){
 
     const result = await prismaClient.user.findUnique({
        where:{
-          email: session?.user.email
+          email: session?.user.email,
        }, 
         select:{
             credits: true

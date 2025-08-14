@@ -38,7 +38,7 @@ return (
  
   <div>
     <Link href={"/dashboard/create-new"}>
-    <Button className="hidden md:flex mx-auto px-16 mt-2 tracking-wide md:px-8 md:mx-4 lg:justify-end">
+    <Button className="hidden btn-secondary md:flex mx-auto px-16 mt-2 tracking-wide md:px-8 md:mx-4 lg:justify-end">
       <Plus />
       Create New
     </Button>
@@ -52,7 +52,7 @@ return (
   <div className="border border-dashed mt-5 py-20 px-auto flex flex-col gap-3 mx-6 max-w-screen-2xl xl:mx-auto">
      <p className="text-foreground flex mx-auto">You haven't any short video created</p>
      <Link href={"/dashboard/create-new"}>
-     <Button className="flex mx-auto">Create New Short Video</Button>
+     <Button className="flex btn-primary mx-auto">Create New Short Video</Button>
      </Link>
   </div>
 ) : (

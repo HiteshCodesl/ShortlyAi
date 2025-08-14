@@ -1,5 +1,6 @@
 import { prismaClient } from "@/prisma/src";
 import { compare } from "bcrypt";
+import { error } from "console";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -13,6 +14,7 @@ export const authOptions: NextAuthOptions = {
             },
             async authorize(credentials){
                 if(!credentials?.email || !credentials?.password) return null;
+                
                 const user = await prismaClient.user.findUnique({
                     where: {
                         email: credentials.email
@@ -35,11 +37,17 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
       return token;
     },
     async session({ session, token }) {
-      if (token) session.user.id = token.id;
+      if(session.user){
+         session.user.id = token.id as string;
+         session.user.email = token.email as string;
+      }
       return session;
     },
   },
