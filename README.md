@@ -8,7 +8,7 @@ Built for creators, marketers, and founders who want to convert ideas into engag
 
 ## 🌐 Live Demo
 
-🔗 [https://shortlyai.vercel.app](https://shortlyai.vercel.app) 
+🔗 [[https://shortlyai.vercel.app](https://shortlyai.vercel.app) ](https://shortly-ai-wc8p.vercel.app/)
 
 > ⚠️ Note: This project is actively under development. Occasional errors may occur while generating content — fixes are in progress.
 
